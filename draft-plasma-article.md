@@ -1,1 +1,1 @@
-# Plasma Roundup: from MVP tp Plasma Group
+# Plasma Roundup: From MVP to Plasma Group
