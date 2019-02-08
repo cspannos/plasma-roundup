@@ -15,11 +15,11 @@ Among these early implementations was [FourthState Labs](https://github.com/Four
 5. ganache-cli // run as a background process
 6. npm test
 
-![FourthState tests](images-for-article/Fourth Estate/fourth-estate.png)
+![FourthState tests](/images-for-article/Fourth-Estate/fourth-estate.png)
 
 Other early MVP's included the [OmiseGO's research implementation](https://github.com/omisego/plasma-mvp), which included a root chain, child chain and a client to interact with the Plasma chain. And [Kyokan](https://github.com/kyokan/plasma), a Golang implementation that extends the original MVP specification. Kyokan uses the FourthState rootchain contract reviewed above. The architecure uses Root Nodes to process transactions and package them into blocks, broacasts blocks to validator nodes, processes exits and more. Validator Nodes check the validity of blocks and exit if bad behavior is detected. The Plasma Contract lives on the Ethereum root chain and supports deposits, block submissions, exits and challenges. Kyokan has deployed their [Plasma Block Explorer](https://explorer.kyokan.io/) on the Rinkeby test net:
 
-![Kyokan Block Explorer](https://explorer.kyokan.io/)
+![Kyokan Block Explorer](/images-for-article/Kyokan/kyokan-block-explorer.png)
 
 Recently, plasma development seems to be taking a great leap forward. The [Plasma Group](https://plasma.group/) recently [announced the release of their implementation](https://medium.com/plasma-group/plasma-spec-9d98d0f2fccf), which includes:
 
