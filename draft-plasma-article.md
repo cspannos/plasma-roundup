@@ -24,12 +24,12 @@ Among the early Plasma implementations was [FourthState Labs](https://github.com
 
 Then I followed these steps:
 
-1. `$ git clone https://github.com/fourthstate/plasma-mvp-rootchain`
-2. `$ cd plasma-mvp-rootchain`
-3. `$ npm install`
-4. `$ npm install -g truffle ganache-cli` // if not installed already
-5. `$ ganache-cli` // run as a background process
-6. `$ npm test`
+0. `$ git clone https://github.com/fourthstate/plasma-mvp-rootchain`
+1. `$ cd plasma-mvp-rootchain`
+2. `$ npm install`
+3. `$ npm install -g truffle ganache-cli` // if not installed already
+4. `$ ganache-cli` // run as a background process
+5. `$ npm test`
 
 ![FourthState tests](/images-for-article/Fourth-Estate/fourth-estate.png)
 
@@ -37,13 +37,37 @@ Other early MVP's included the [OmiseGO's research implementation](https://githu
 
 [Kyokan](https://github.com/kyokan/plasma), a Golang implementation that [extends the original MVP specification](https://kauri.io/article/7f9e1c04f3964016806becc33003bdf3/v4/minimum-viable-plasma-the-kyokan-implementation), uses the FourthState rootchain contract reviewed above. The architecture uses Root Nodes to process transactions and package them into blocks, broadcasts blocks to validator nodes, processes exits and more.
 
-Validator Nodes check the validity of blocks and exit if bad behavior is detected. The Plasma Contract lives on the Ethereum root chain and supports deposits, block submissions, exits and challenges. Kyokan has deployed their [Plasma Block Explorer](https://explorer.kyokan.io/) on the Rinkeby test net:
+In Kyokan, validator Nodes check the validity of blocks and exit if bad behavior is detected. The Plasma Contract lives on the Ethereum root chain and supports deposits, block submissions, exits and challenges. Kyokan has deployed their [Plasma Block Explorer](https://explorer.kyokan.io/) on the Rinkeby test net:
 
 ![Kyokan Block Explorer](/images-for-article/Kyokan/kyokan-block-explorer.png)
 
-Closing 2018, the [Plasma Group](https://plasma.group/) [announced the release of their open implementation](https://medium.com/plasma-group/plasma-spec-9d98d0f2fccf) aimed at the greater Ethereum community. It includes a plasma chain operator, and client and command line wallet, support for ERC20 tokens, a block explorer, transaction load testing and more.
+Closing 2018, the [Plasma Group](https://plasma.group/) [announced the release of their open implementation](https://medium.com/plasma-group/plasma-spec-9d98d0f2fccf) aimed at the greater Ethereum community. It includes a Plasma chain operator, a client and command line wallet, support for ERC20 tokens, a block explorer, transaction load testing and more.
+
+Many aspects of [this implementation are currently testable](https://github.com/plasma-group). To test the [Plasma Core](https://github.com/plasma-group/plasma-core) (again using the Debian, Ganache, NPM environment), follow these steps:
+
+0. `git clone git@github.com:plasma-group/plasma-core.git`
+1. `cd plasma-core`
+2. `npm install`
+3. `npm test`
+
+![Plasma Core](images-for-article/Plasma-Group/Plasma-Core/plasma-group-core-test-41-passing.png)
+![Plasma Core](images-for-article/Plasma-Group/Plasma-Core/plasma-group-core-test-10-passing.png)
+
+To run Plasma Group's [chain operator](https://github.com/plasma-group/plasma-chain-operator):
+
+0. `$ npm install plasma-chain [-g]` # install the plasma chain operator. Global flag is optional, if you don't use global, just replace all of the following commands with `npm run plamsa-chain [command]`. If you can't install globally without `sudo` then just use local!
+1. `$ plasma-chain account new`  # create a new account.
+2. # On Rinkeby testnet, send your new Operator address ~0.5 ETH. You can use a faucet to get test ETH for free here: https://faucet.rinkeby.io/
+3. `$ plasma-chain list` # list all the plasma chains which others have deployed to the Plasma Network Registry.
+4. `$ plasma-chain deploy` # deploy a new Plasma Chain. Note you will be prompted for a unique Plasma Chain name & IP address. If you are running on your laptop, just set the IP to `0.0.0.0` as you probably don't
+want to reveal your IP to the public. However, if you are running in a data center and would
+like to accept Plasma transactions & serve a block explorer to the public, go ahead and set an IP.
+5. `$ plasma-chain start` # start your new Plasma Chain.
+6. [optional] Open a new terminal. In this new terminal use the following command:
+`$ plasma-chain testSwarm` # spam your Plasma Chain with tons of test transactions
 
 
+You can also view your local block explorer at http:127.0.0.1:8000
 
 
-Plasma seems to be taking a great leap forward.
+Plasma seems to be taking a great leap forward, but there are still a few obsitlces to overcome. Implementations need to be audited and tested much more.  
