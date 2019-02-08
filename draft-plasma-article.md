@@ -23,14 +23,14 @@ Among the early Plasma implementations was [FourthState Labs](https://github.com
 * NPM 6.7.0
 
 Then I followed these steps:
-
+``
 1. git clone https://github.com/fourthstate/plasma-mvp-rootchain
 2. cd plasma-mvp-rootchain
 3. npm install
 4. npm install -g truffle ganache-cli // if not installed already
 5. ganache-cli // run as a background process
 6. npm test
-
+``
 ![FourthState tests](/images-for-article/Fourth-Estate/fourth-estate.png)
 
 Other early MVP's included the [OmiseGO's research implementation](https://github.com/omisego/plasma-mvp), which included a root chain, child chain and a client to interact with the Plasma chain.
