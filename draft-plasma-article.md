@@ -58,7 +58,6 @@ To run Plasma Group's [chain operator](https://github.com/plasma-group/plasma-ch
 0. `$ npm install plasma-chain -g`
 1. `$ plasma-chain account new`
 2. Use the [Rinkeby testnet faucet](https://faucet.rinkeby.io/) to send your new Operator address ~0.5 ETH.
-![Plasma Chain Operator](images-for-article/Plasma-Group/Plasma-Chain-Operator/plasma-chain-account-new.png)
 3. `$ plasma-chain list` # to list all the Plasma chains which others have deployed to the Plasma Network Registry.
 ![Plasma Chain List](images-for-article/Plasma-Group/Plasma-Chain-Operator/plasma-chain-list.png)
 4. `$ plasma-chain deploy` # the cli will warn you that deplyment takes time. it does.
