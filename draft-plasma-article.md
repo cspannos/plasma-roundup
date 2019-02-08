@@ -1,7 +1,7 @@
 # Plasma Roundup: From MVP to Plasma Group
 By Chris Spannos
 
-Ethereum second layer scaling technology has come a long way in a very short period of time. Second layer solutions, innovations byeond the layer one protocol level, include State Channels, Side Chains and Plasma. Taken together, layer two technologies present a wide scope of possabilities for scaling the Ethereum blockchain. This article focuses on Plasma development only.  
+Ethereum second layer scaling technology has come a long way in a very short period of time. Second layer solutions, innovations beyond the layer one protocol level, include State Channels, Side Chains and Plasma. Taken together, layer two technologies present a wide scope of possabilities for scaling the Ethereum blockchain. This article focuses on Plasma development only.  
 
 It was in August 2017 when Plasma creators Joseph Poon and Vitalik Buterin [proposed this framework](https://plasma.io/plasma.pdf) which they hoped would scale Ethereum transaction throughput to a "significant amount of state updates per second," potentially more than Paypal, Visa or other widely used merchant service providers.
 
