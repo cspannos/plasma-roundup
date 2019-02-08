@@ -57,8 +57,10 @@ To run Plasma Group's [chain operator](https://github.com/plasma-group/plasma-ch
 
 0. `$ npm install plasma-chain [-g]` # install the plasma chain operator. Global flag is optional, if you don't use global, just replace all of the following commands with `npm run plamsa-chain [command]`. If you can't install globally without `sudo` then just use local!
 1. `$ plasma-chain account new`  # create a new account.
-2. # On Rinkeby testnet, send your new Operator address ~0.5 ETH. You can use a faucet to get test ETH for free here: https://faucet.rinkeby.io/
+2. On Rinkeby testnet, send your new Operator address ~0.5 ETH. You can use a faucet to get test ETH for free here: https://faucet.rinkeby.io/
+![Plasma Chain Operator](images-for-article/Plasma-Group/Plasma-Chain-Operator/plasma-chain-account-new.png)
 3. `$ plasma-chain list` # list all the plasma chains which others have deployed to the Plasma Network Registry.
+![Plasma Chain List](images-for-article/Plasma-Group/Plasma-Chain-Operator/plasma-chain-list.png)
 4. `$ plasma-chain deploy` # deploy a new Plasma Chain. Note you will be prompted for a unique Plasma Chain name & IP address. If you are running on your laptop, just set the IP to `0.0.0.0` as you probably don't
 want to reveal your IP to the public. However, if you are running in a data center and would
 like to accept Plasma transactions & serve a block explorer to the public, go ahead and set an IP.
@@ -66,8 +68,10 @@ like to accept Plasma transactions & serve a block explorer to the public, go ah
 6. [optional] Open a new terminal. In this new terminal use the following command:
 `$ plasma-chain testSwarm` # spam your Plasma Chain with tons of test transactions
 
+To spin up Plasma Group's block explorer, assuming the same environment as above, simply:
+1. `$ git clone https://github.com/plasma-group/plasma-explorer`
+2. `$ npm install`
+3. `$ npm run serve` # You can view the local block explorer at http:127.0.0.1:8000, however, you may need to forward traffic from port 80 to port 3000 with this command: `$ sudo iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 80 -j REDIRECT --to-ports 3000`
+![Plasma Group Block Explorer](images-for-article/Plasma-Group/Plasma-Block-Explorer/plasma-block-explorer.png)
 
-You can also view your local block explorer at http:127.0.0.1:8000
-
-
-Plasma seems to be taking a great leap forward, but there are still a few obsitlces to overcome. Implementations need to be audited and tested much more.  
+Overall, Plasma seems to be making a great leap forward, but there are still a few obstacles to overcome. Implementations need to be audited and tested. With mass adoption and the potential for global application, the stakes are high for these chains which, if all goes according to implementer plans, will be processing a significant number of states per second, each of very high value. These implementations may suggest that layer two Plasma technology is right around the corner, but careful engineering to protect users and avoid risk will take time.        
